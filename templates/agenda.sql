@@ -24,22 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contacts`
+-- Estrutura da tabela `servico`
 --
 USE agenda;
 
-CREATE TABLE `contacts` (
+CREATE TABLE `servico` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
+  `valor` varchar(20) DEFAULT NULL,
   `observations` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `contacts`
+-- Extraindo dados da tabela `servico`
 --
 
-INSERT INTO `contacts` (`id`, `name`, `phone`, `observations`) VALUES
+INSERT INTO `servico` (`id`, `name`, `valor`, `observations`) VALUES
 (1, 'Instalação hidraulica', 'R$ 150,00', 'Troca de torneira simples por uma aquecida'),
 (4, 'Desintupimento', 'R$ 320,00', 'Privada entupida e torneira do banheiro');
 
@@ -48,9 +48,9 @@ INSERT INTO `contacts` (`id`, `name`, `phone`, `observations`) VALUES
 --
 
 --
--- Índices para tabela `contacts`
+-- Índices para tabela `servico`
 --
-ALTER TABLE `contacts`
+ALTER TABLE `servico`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,9 +58,9 @@ ALTER TABLE `contacts`
 --
 
 --
--- AUTO_INCREMENT de tabela `contacts`
+-- AUTO_INCREMENT de tabela `servico`
 --
-ALTER TABLE `contacts`
+ALTER TABLE `servico`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 

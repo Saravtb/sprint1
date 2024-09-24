@@ -10,25 +10,25 @@
   // MODIFICAÇÕES NO BANCO
   if(!empty($data)) {
 
-    // Criar contato
+    // Criar serviço
     if($data["type"] === "create") {
 
       $name = $data["name"];
-      $phone = $data["phone"];
+      $valor = $data["valor"];
       $observations = $data["observations"];
 
-      $query = "INSERT INTO contacts (name, phone, observations) VALUES (:name, :phone, :observations)";
+      $query = "INSERT INTO servico (name, valor, observations) VALUES (:name, :valor, :observations)";
 
       $stmt = $conn->prepare($query);
 
       $stmt->bindParam(":name", $name);
-      $stmt->bindParam(":phone", $phone);
+      $stmt->bindParam(":valor", $valor);
       $stmt->bindParam(":observations", $observations);
 
       try {
 
         $stmt->execute();
-        $_SESSION["msg"] = "Contato criado com sucesso!";
+        $_SESSION["msg"] = "Serviço foi criado com sucesso!";
     
       } catch(PDOException $e) {
         // erro na conexão
@@ -39,25 +39,25 @@
     } else if($data["type"] === "edit") {
 
       $name = $data["name"];
-      $phone = $data["phone"];
+      $valor = $data["valor"];
       $observations = $data["observations"];
       $id = $data["id"];
 
-      $query = "UPDATE contacts 
-                SET name = :name, phone = :phone, observations = :observations 
+      $query = "UPDATE servico 
+                SET name = :name, valor = :valor, observations = :observations 
                 WHERE id = :id";
 
       $stmt = $conn->prepare($query);
 
       $stmt->bindParam(":name", $name);
-      $stmt->bindParam(":phone", $phone);
+      $stmt->bindParam(":valor", $valor);
       $stmt->bindParam(":observations", $observations);
       $stmt->bindParam(":id", $id);
 
       try {
 
         $stmt->execute();
-        $_SESSION["msg"] = "Contato atualizado com sucesso!";
+        $_SESSION["msg"] = "Serviço atualizado com sucesso!";
     
       } catch(PDOException $e) {
         // erro na conexão
@@ -69,7 +69,7 @@
 
       $id = $data["id"];
 
-      $query = "DELETE FROM contacts WHERE id = :id";
+      $query = "DELETE FROM servico WHERE id = :id";
 
       $stmt = $conn->prepare($query);
 
@@ -78,7 +78,7 @@
       try {
 
         $stmt->execute();
-        $_SESSION["msg"] = "Contato removido com sucesso!";
+        $_SESSION["msg"] = "Serviço foi removido com sucesso!";
     
       } catch(PDOException $e) {
         // erro na conexão
@@ -100,10 +100,10 @@
       $id = $_GET["id"];
     }
 
-    // Retorna o dado de um contato
+    // Retorna o dado de um serviço
     if(!empty($id)) {
 
-      $query = "SELECT * FROM contacts WHERE id = :id";
+      $query = "SELECT * FROM servico WHERE id = :id";
 
       $stmt = $conn->prepare($query);
 
@@ -111,20 +111,20 @@
 
       $stmt->execute();
 
-      $contact = $stmt->fetch();
+      $servico = $stmt->fetch();
 
     } else {
 
-      // Retorna todos os contatos
-      $contacts = [];
+      // Retorna todos os serviços
+      $servico = [];
 
-      $query = "SELECT * FROM contacts";
+      $query = "SELECT * FROM servico";
 
       $stmt = $conn->prepare($query);
 
       $stmt->execute();
       
-      $contacts = $stmt->fetchAll();
+      $servico = $stmt->fetchAll();
 
     }
 

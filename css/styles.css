@@ -1,3 +1,44 @@
+html, body {
+  height: 100%; 
+  margin: 0; /
+}
+/* Degradê de fundo */
+body {
+  background: linear-gradient(to bottom, #ffffff, #234467bd); 
+}
+/*barra de navegação*/
+.custom-navbar {
+  background-color: #234467; 
+  padding: 15px 20px; 
+}
+
+.custom-navbar .navbar-brand{
+  color: #234467;
+}
+.navbar-nav .nav-link {
+  margin-right: 20px; 
+}
+
+.navbar-nav .nav-link:last-child {
+  margin-right: 0;
+}
+
+.nav-link i {
+  font-size: 20px; 
+  margin-left: 5px; 
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff; 
+  transition: background-color 0.3s, border-radius 0.3s; 
+  border-radius: 5px; 
+}
+
+.custom-navbar .nav-link:hover {
+  color: #e0e0e0; 
+  background-color: #15283d; 
+}
+
 .navbar-brand img {
   width: 50px;
 }
@@ -5,17 +46,19 @@
 #main-title {
   text-align: center;
   margin: 15px 0 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+  font-size: 2rem; 
 }
 
 /* HOME */
-#contacts-table {
+#servico-table {
   max-width: 800px;
   margin: 0 auto;
 }
 
-#contacts-table thead {
+#servico-table thead {
   color: #FFF;
-  background-color: #007BFF;
+  background-color: #234467;
 }
 
 .col-id {
@@ -37,7 +80,7 @@
 }
 
 .edit-icon {
-  color: #007BFF;
+  color: #234467;
 }
 
 .delete-form {
@@ -59,9 +102,9 @@
 }
 
 #msg {
-  color: #155724;
+  color: #234467;
   background-color: #D4EDDA;
-  border: 1px solid #C3E6CB;
+  border: 5px solid #C3E6CB;
   padding: 10px;
   text-align: center;
   max-width: 500px;
@@ -69,8 +112,8 @@
   margin-top: 30px;
 }
 
-/* SHOW / CONTATO INDIVIDUAL */
-#view-contact-container {
+/* SHOW / servico INDIVIDUAL */
+#view-servico-container {
   max-width: 500px;
   margin: 0 auto;
 }
@@ -86,8 +129,8 @@
 }
 
 #back-link {
-  border: 1px solid #007BFF;
-  color: #007BFF;
+  border: 1px solid #193858;
+  color: #193858;
   border-radius: 4px;
   padding: 5px;
 }
@@ -105,9 +148,8 @@
 
 /* MOBILE */
 @media(max-width: 480px) {
-
   #home-link {
     display: none;
   }
-
 }
+
